@@ -8,6 +8,13 @@ const runAddOn = () => {
 
     Logger.log("mergedArr");
     Logger.log(mergedArr);
+
+    // Create new sheet
+    const newSheet = SpreadsheetApp.getActiveSpreadsheet().insertSheet();
+    mergedArr.forEach(row => {
+        newSheet.appendRow(row);
+    });
+
 }
 
 const convertToArray = (range, matchIndex) => {
