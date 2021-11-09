@@ -1,5 +1,12 @@
 {
   "timeZone": "America/New_York",
+  "addOns": {
+    "sheets": {
+      "homepageTrigger": {
+        "enabled": true
+      }
+    }
+  },
   "dependencies": {
   },
   "exceptionLogging": "STACKDRIVER",
