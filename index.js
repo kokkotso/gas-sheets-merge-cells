@@ -1,5 +1,17 @@
+// Create UI
+const onOpen = () => {
+    Logger.log("creating UI");
+    const ui = SpreadsheetApp.getUi();
+    const menu = ui.createMenu("Merge Cells");
+
+    menu.addItem("Run merge", 'runAddOn');
+
+    menu.addToUi();
+}
+
 const runAddOn = () => {
     Logger.log("start runAddOn");
+
     // Get active sheet
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     const range = sheet.getDataRange();
@@ -14,7 +26,6 @@ const runAddOn = () => {
     mergedArr.forEach(row => {
         newSheet.appendRow(row);
     });
-
 }
 
 const convertToArray = (range, matchIndex) => {
