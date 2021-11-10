@@ -1,6 +1,6 @@
 // Create UI
 const onOpen = () => {
-    Logger.log("creating UI");
+    // Logger.log("creating UI");
     const ui = SpreadsheetApp.getUi();
     const menu = ui.createMenu("Merge Cells");
 
@@ -10,16 +10,15 @@ const onOpen = () => {
 }
 
 const runAddOn = () => {
-    Logger.log("start runAddOn");
-
+    // Logger.log("start runAddOn");
     // Get active sheet
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     const range = sheet.getDataRange();
 
     const mergedArr = convertToArray(range, 1);
 
-    Logger.log("mergedArr");
-    Logger.log(mergedArr);
+    // Logger.log("mergedArr");
+    // Logger.log(mergedArr);
 
     // Create new sheet
     const newSheet = SpreadsheetApp.getActiveSpreadsheet().insertSheet();
@@ -29,12 +28,12 @@ const runAddOn = () => {
 }
 
 const convertToArray = (range, matchIndex) => {
-    Logger.log("start convertToArray");
+    // Logger.log("start convertToArray");
 
     const origValuesArr = range.getValues();
 
-    Logger.log("origValuesArr");
-    Logger.log(origValuesArr);
+    // Logger.log("origValuesArr");
+    // Logger.log(origValuesArr);
 
     const cache = {};
 
@@ -42,11 +41,11 @@ const convertToArray = (range, matchIndex) => {
         const matchValue = row[matchIndex];
         const mergeValue = row[0];
         if (cache.hasOwnProperty(matchValue)) {
-            Logger.log("match found");
-            Logger.log(cache[matchValue]);
+            // Logger.log("match found");
+            // Logger.log(cache[matchValue]);
             cache[matchValue] = cache[matchValue].concat("\n", mergeValue);
-            Logger.log("merging");
-            Logger.log(cache[matchValue]);
+            // Logger.log("merging");
+            // Logger.log(cache[matchValue]);
         } else {
             cache[matchValue] = `${mergeValue}`;
         }
