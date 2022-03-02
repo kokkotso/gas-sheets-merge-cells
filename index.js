@@ -40,6 +40,12 @@ const convertToArray = (range, matchIndex) => {
     origValuesArr.forEach(row => {
         const matchValue = row[matchIndex];
         const mergeValue = row[0];
+
+        // skips row if path and target are the same - prevents recursive redirects from being mapped
+        if (matchValue === mergeValue) {
+            return;
+        }
+
         if (cache.hasOwnProperty(matchValue)) {
             // Logger.log("match found");
             // Logger.log(cache[matchValue]);
